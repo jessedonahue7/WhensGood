@@ -21,5 +21,13 @@
 		}else{
 			return $db;
 		}
-	};
+    };
+    function validateCode($code){
+        $conn=connectDB();
+        $sql = "SELECT EventCode FROM Events WHERE EventCode = '$code' ";
+            $result = $conn->query($sql);
+            $conn->close();
+
+        return $result;
+        };
 ?>
